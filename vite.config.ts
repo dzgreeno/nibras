@@ -15,6 +15,5 @@ export default defineConfig({
         manualChunks: undefined
       }
     }
-  },
-  base: '/', // ← مهم جدًا لعمل الموقع على Vercel
+  }
 });
