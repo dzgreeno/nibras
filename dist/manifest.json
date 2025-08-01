@@ -1,0 +1,16 @@
+{
+  "name": "مدرسة نبراس",
+  "short_name": "نبراس",
+  "description": "موقع مدرسة نبراس التعليمية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
