@@ -5,6 +5,7 @@ import { PRIMARY_SUBJECTS, PRIMARY_GRADES } from '../data/algerianEducationSyste
 import QuickActions from '../components/QuickActions';
 import { studentQuickActions } from '../data/quickActions';
 import { useNotification } from '../contexts/NotificationContext';
+import LessonModal, { LessonData } from '../components/LessonModal';
 
 // Types
 interface Achievement {
@@ -149,17 +150,17 @@ const StudentDashboard: React.FC = () => {
     setShowLessonModal(true);
   };
 
-  const handleCompleteLesson = () => {
+  const handleCompleteLesson = (points: number, dinars: number) => {
     setStudentData(prev => prev ? ({
       ...prev,
-      totalPoints: prev.totalPoints + 50,
-      dinarsEarned: prev.dinarsEarned + 5,
+      totalPoints: prev.totalPoints + points,
+      dinarsEarned: prev.dinarsEarned + dinars,
       completedLessons: prev.completedLessons + 1
     }) : null);
     setShowLessonModal(false);
     showSuccess(
-      'تهانينا! تم إكمال الدرس بنجاح',
-      'لقد حصلت على 50 نقطة و 5 دنانير معرفية!'
+      'تهانينا! تم إكمال المهمة بنجاح! 🎉',
+      `لقد حصلت على ${points} نقطة و ${dinars} دينار معرفي!`
     );
   };
 
@@ -683,6 +684,96 @@ const StudentDashboard: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Lesson Modal */}
+      <LessonModal
+        isOpen={showLessonModal}
+        onClose={() => setShowLessonModal(false)}
+        onComplete={handleCompleteLesson}
+        lessonData={{
+          id: 'math_addition_5',
+          title: studentData?.nextLesson.title || 'مهمة فريق الأبطال الخمسة!',
+          subject: studentData?.nextLesson.subject || 'الرياضيات',
+          duration: studentData?.nextLesson.duration || '25 دقيقة',
+          difficulty: studentData?.nextLesson.difficulty || 'متوسط',
+          description: 'تعلم الجمع بإضافة العدد 5 من خلال مغامرة فضائية مثيرة مع فريق الأبطال الخمسة',
+          objectives: [
+            'إتقان عملية الجمع بإضافة العدد 5',
+            'استخدام استراتيجية العد التصاعدي',
+            'حل المسائل الرياضية بثقة',
+            'تطبيق المفهوم في مواقف مختلفة'
+          ],
+          activities: [
+            {
+              id: 1,
+              type: 'drag-drop',
+              title: 'شاحن الطاقة',
+              description: 'اسحب كبسولة طاقة الأبطال (+5) إلى الشاحن',
+              content: {
+                baseNumber: 4,
+                targetNumber: 9,
+                options: [7, 9, 11]
+              },
+              completed: false
+            },
+            {
+              id: 2,
+              type: 'multiple-choice',
+              title: 'تدمير الكويكبات',
+              description: 'اختر الكويكب الذي يحمل الإجابة الصحيحة',
+              content: {
+                equation: '6 + 5 = ?',
+                options: [10, 11, 12],
+                correct: 11
+              },
+              completed: false
+            },
+            {
+              id: 3,
+              type: 'input',
+              title: 'تفعيل الدرع',
+              description: 'أدخل العدد الإجمالي لوحدات الطاقة',
+              content: {
+                baseNumber: 7,
+                addNumber: 5,
+                correctAnswer: 12
+              },
+              completed: false
+            },
+            {
+              id: 4,
+              type: 'matching',
+              title: 'توصيل خطوط الطاقة',
+              description: 'صل كل محطة طاقة بمحطة الاستقبال الصحيحة',
+              content: {
+                pairs: [
+                  { left: 2, right: 7 },
+                  { left: 8, right: 13 },
+                  { left: 1, right: 6 }
+                ]
+              },
+              completed: false
+            },
+            {
+              id: 5,
+              type: 'simulation',
+              title: 'ضبط سرعة السفينة',
+              description: 'استخدم أزرار التحكم للوصول إلى السرعة المطلوبة',
+              content: {
+                currentSpeed: 1,
+                targetSpeed: 11,
+                boostValue: 5
+              },
+              completed: false
+            }
+          ],
+          rewards: {
+            points: 250,
+            dinars: 25,
+            badges: ['خبير طاقة الأبطال الخمسة', 'مستكشف الفضاء', 'بطل الرياضيات']
+          }
+        }}
+      />
     </div>
   );
 };

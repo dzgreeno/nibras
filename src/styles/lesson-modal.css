@@ -1,0 +1,294 @@
+/* تأثيرات خاصة بنافذة الدروس */
+
+/* خلفية النجوم للمشاهد الفضائية */
+.bg-stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+}
+
+/* تأثيرات الحركة للعناصر التفاعلية */
+.lesson-element {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lesson-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* تأثير النبض للعناصر المهمة */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+/* تأثير الانفجار للكويكبات */
+.asteroid-explosion {
+  animation: asteroid-explosion 0.6s ease-out;
+}
+
+@keyframes asteroid-explosion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* تأثير الشحن للطاقة */
+.energy-charge {
+  animation: energy-charge 1s ease-in-out;
+}
+
+@keyframes energy-charge {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* تأثير التوهج للدرع */
+.shield-glow {
+  animation: shield-glow 1.5s ease-in-out;
+}
+
+@keyframes shield-glow {
+  0% {
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+  }
+}
+
+/* تأثير الاهتزاز للأخطاء */
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* تأثير النجاح */
+.success-bounce {
+  animation: success-bounce 0.6s ease-out;
+}
+
+@keyframes success-bounce {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* تأثير الكتابة للنصوص */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: currentColor; }
+}
+
+/* تأثير الجسيمات للمكافآت */
+.particle-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: particles 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particles {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* تأثيرات الصوت البصرية */
+.sound-wave {
+  animation: sound-wave 1s ease-in-out infinite;
+}
+
+@keyframes sound-wave {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+/* تأثير التقدم المتحرك */
+.progress-animated {
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.8) 0%, 
+    rgba(147, 197, 253, 1) 50%, 
+    rgba(59, 130, 246, 0.8) 100%);
+  background-size: 200% 100%;
+  animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* تحسينات للأجهزة المحمولة */
+@media (max-width: 768px) {
+  .lesson-modal-content {
+    padding: 1rem;
+    max-height: 85vh;
+  }
+  
+  .lesson-activity-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .lesson-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .lesson-controls button {
+    width: 100%;
+  }
+}
+
+/* تحسينات للتابلت */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lesson-modal-content {
+    padding: 1.5rem;
+    max-height: 90vh;
+  }
+  
+  .lesson-activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 1025px) {
+  .lesson-modal-content {
+    padding: 2rem;
+    max-height: 95vh;
+  }
+  
+  .lesson-activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* تأثيرات إضافية للتفاعل */
+.interactive-element {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.interactive-element:active {
+  transform: scale(0.95);
+}
+
+/* تأثير التركيز للوصولية */
+.lesson-element:focus {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* تأثيرات الانتقال السلس */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تأثير الظل المتحرك */
+.floating-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.floating-shadow:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}

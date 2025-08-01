@@ -53,6 +53,7 @@ import DetailedCurriculum from './pages/DetailedCurriculum';
 import AccountsManager from './pages/AccountsManager';
 import Welcome from './pages/Welcome';
 import SystemValidation from './pages/SystemValidation';
+import LessonModalTest from './components/LessonModalTest';
 
 const AppContent: React.FC = () => {
   const location = useLocation();
