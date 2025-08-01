@@ -15,6 +15,6 @@ export default defineConfig({
         manualChunks: undefined
       }
     }
-  }, // ✅ أضفنا فاصلة هنا
-  base: '/nibras/',
+  },
+  base: '/', // ← مهم جدًا لعمل الموقع على Vercel
 });
